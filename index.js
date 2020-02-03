@@ -434,26 +434,81 @@ Kettle : Available`);
     }
 
     function CashOnArrival(agent) {
-        const costOfThing = [daysCost, hotelRoomCost, costOfBreakfast, smokingroomCost, parkingCost, wakeupCost, massageCost, jacuzziCost, saunaCost, roseCosr, wineCost, champagneCost];
-        for (let i = 0; i < costOfThing.length; i++) {
-            if (costOfThing[i] === 'undefined') {
-                costOfThing[i] === 0
-            }
+
+        if (costOfBreakfast === 'undefined') {
+            costOfBreakfast = 0;
         }
+
+        if (smokingroomCost === 'undefined') {
+            smokingroomCost = 0;
+        }
+
+
+        if (parkingCost === 'undefined') {
+            parkingCost = 0;
+        }
+
+
+        if (wakeupCost === 'undefined') {
+            wakeupCost = 0;
+        }
+
+
+        if (massageCost === 'undefined') {
+            massageCost = 0;
+        }
+
+
+        if (jacuzziCost === 'undefined') {
+            jacuzziCost = 0;
+        }
+
+
+        if (saunaCost === 'undefined') {
+            saunaCost = 0;
+        }
+
+
+        if (roseCosr === 'undefined') {
+            roseCosr = 0;
+        }
+
+
+        if (wineCost === 'undefined') {
+            wineCost = 0;
+        }
+
+
+        if (champagneCost === 'undefined') {
+            champagneCost = 0;
+        }
+
+        if (costOfDinner === 'undefined') {
+            costOfDinner = 0;
+        }
+
+        if (costOfBreakfast === 'undefined') {
+            costOfBreakfast = 0;
+        }
+
+        const total = daysCost * hotelRoomCost + costOfBreakfast + smokingroomCost + parkingCost + wakeupCost + massageCost + jacuzziCost + roseCosr + wineCost + champagneCost + costOfDinner;
+
         agent.add(`Thank you for Ordering 
 Here is your order details
-No of Days: ${costOfThing[0]}
-cost of Room: ${costOfThing[1]} * ${costOfThing[0]}
-cost of bed: ${costOfThing[2]}
-cost of smoking room: ${costOfThing[3]}
-cost of parking: ${costOfThing[4]}
-cost of wakeup service: ${costOfThing[5]}
-cost of massage: ${costOfThing[6]}
-cost of Jacuzzi: ${costOfThing[7]}
-cost of Sauna Bath: ${costOfThing[8]}
-cost of Bouquet of Roses: ${costOfThing[9]}
-cost of Bottle of Wine: ${costOfThing[10]}
-cost of Bottle of Champagne: ${costOfThing[11]}`);
+No of Days: ${daysCost}
+cost of Room: ${hotelRoomCost} * ${daysCost}
+cost of bed: ${costOfBreakfast}
+cost of smoking room: ${smokingroomCost}
+cost of parking: ${parkingCost}
+cost of wakeup service: ${wakeupCost}
+cost of massage: ${massageCost}
+cost of breakfast: ${costOfBreakfast}
+cost of dinner: ${costOfDinner}
+cost of Jacuzzi: ${jacuzziCost}
+cost of Sauna Bath: ${saunaCost}
+cost of Bouquet of Roses: ${roseCosr}
+cost of Bottle of Wine: ${wineCost}
+cost of Bottle of Champagne: ${champagneCost}`);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
