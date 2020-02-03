@@ -435,59 +435,59 @@ Kettle : Available`);
 
     function CashOnArrival(agent) {
 
-        if (costOfBreakfast === 'undefined') {
+        if (costOfBreakfast === undefined) {
             costOfBreakfast = 0;
         }
 
-        if (smokingroomCost === 'undefined') {
+        if (smokingroomCost === undefined) {
             smokingroomCost = 0;
         }
 
 
-        if (parkingCost === 'undefined') {
+        if (parkingCost === undefined) {
             parkingCost = 0;
         }
 
 
-        if (wakeupCost === 'undefined') {
+        if (wakeupCost === undefined) {
             wakeupCost = 0;
         }
 
 
-        if (massageCost === 'undefined') {
+        if (massageCost === undefined) {
             massageCost = 0;
         }
 
 
-        if (jacuzziCost === 'undefined') {
+        if (jacuzziCost === undefined) {
             jacuzziCost = 0;
         }
 
 
-        if (saunaCost === 'undefined') {
+        if (saunaCost === undefined) {
             saunaCost = 0;
         }
 
 
-        if (roseCosr === 'undefined') {
+        if (roseCosr === undefined) {
             roseCosr = 0;
         }
 
 
-        if (wineCost === 'undefined') {
+        if (wineCost === undefined) {
             wineCost = 0;
         }
 
 
-        if (champagneCost === 'undefined') {
+        if (champagneCost === undefined) {
             champagneCost = 0;
         }
 
-        if (costOfDinner === 'undefined') {
+        if (costOfDinner === undefined) {
             costOfDinner = 0;
         }
 
-        if (costOfBreakfast === 'undefined') {
+        if (costOfBreakfast === undefined) {
             costOfBreakfast = 0;
         }
 
