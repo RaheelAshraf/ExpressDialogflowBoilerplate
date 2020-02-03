@@ -4,7 +4,7 @@ const { WebhookClient } = require('dialogflow-fulfillment');
 const app = express().use(bodyParser.json());
 const port = process.env.PORT || 8080;
 
-app.post('/webhook', (request , response) => {
+app.post('/webhook', (request, response) => {
 
     const _agent = new WebhookClient({ request: request, response: response });
 
