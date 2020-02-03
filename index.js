@@ -104,6 +104,43 @@ The cost would be $10 per day?`)
         return agent.setFollowupEvent({ "name": "nopark", "parameters": { "received": "false" } });
     }
 
+
+    function bookHotelOne(agent) {
+        agent.add(`Hotel 1 has been booked`);
+    }
+
+    function bookHotelTwo(agent) {
+        agent.add(`Hotel 2 has been booked`);
+    }
+
+    function bookHotelThree(agent) {
+        agent.add(`Hotel 3 has been booked`);
+    }
+
+    function bookHotelFour(agent) {
+        agent.add(`Hotel 4 has been booked`);
+    }
+
+    function bookHotelFive(agent) {
+        agent.add(`Hotel 5 has been booked`);
+    }
+
+    function bookHotelSix(agent) {
+        agent.add(`Hotel 6 has been booked`);
+    }
+
+    function bookHotelSeven(agent) {
+        agent.add(`Hotel 7 has been booked`);
+    }
+
+    function bookHotelEight(agent) {
+        agent.add(`Hotel 8 has been booked`);
+    }
+
+    function bookHotelNine(agent) {
+        agent.add(`Hotel 9 has been booked`);
+    }
+
     function hotelOneDetails(agent) {
         agent.add(`Here are the additional details
 Space : 20m Sq
@@ -405,6 +442,15 @@ cost of Bottle of Champagne: ${champagneCost} `);
     intentMap.set('book room', bookRoom);
     intentMap.set('persons', Person);
     intentMap.set('show rooms', ShowRooms);
+    intentMap.set('hotel one', bookHotelOne);
+    intentMap.set('hotel two', bookHotelTwo);
+    intentMap.set('hotel three', bookHotelThree);
+    intentMap.set('hotel four', bookHotelFour);
+    intentMap.set('hotel five', bookHotelFive);
+    intentMap.set('hotel six', bookHotelSix);
+    intentMap.set('hotel seven', bookHotelSeven);
+    intentMap.set('hotel eight', bookHotelEight);
+    intentMap.set('hotel nine', bookHotelNine);
     intentMap.set('hotelonedetails', hotelOneDetails);
     intentMap.set('hoteltwodetails', hotelTwoDetails);
     intentMap.set('hotelthreedetails', hotelThreeDetails);
