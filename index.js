@@ -434,20 +434,26 @@ Kettle : Available`);
     }
 
     function CashOnArrival(agent) {
+        const costOfThing = [daysCost, hotelRoomCost, costOfBreakfast, smokingroomCost, parkingCost, wakeupCost, massageCost, jacuzziCost, saunaCost, roseCosr, wineCost, champagneCost];
+        for (let i = 0; i < costOfThing.length; i++) {
+            if (costOfThing[i] === 'undefined') {
+                costOfThing[i] === 0
+            }
+        }
         agent.add(`Thank you for Ordering 
 Here is your order details
-cost of Room: 
-cost of Days: ${daysCost}
-cost of bed: ${costOfBreakfast}
-cost of smoking room: ${smokingroomCost}
-cost of parking: ${parkingCost}
-cost of wakeup service: ${wakeupCost}
-cost of massage: ${massageCost}
-cost of Jacuzzi: ${jacuzziCost}
-cost of Sauna Bath: ${saunaCost}
-cost of Bouquet of Roses: ${roseCosr}
-cost of Bottle of Wine: ${wineCost}
-cost of Bottle of Champagne: ${champagneCost} `);
+No of Days: ${costOfThing[0]}
+cost of Room: ${costOfThing[1]} * ${costOfThing[0]}
+cost of bed: ${costOfThing[2]}
+cost of smoking room: ${costOfThing[3]}
+cost of parking: ${costOfThing[4]}
+cost of wakeup service: ${costOfThing[5]}
+cost of massage: ${costOfThing[6]}
+cost of Jacuzzi: ${costOfThing[7]}
+cost of Sauna Bath: ${costOfThing[8]}
+cost of Bouquet of Roses: ${costOfThing[9]}
+cost of Bottle of Wine: ${costOfThing[10]}
+cost of Bottle of Champagne: ${costOfThing[11]}`);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
