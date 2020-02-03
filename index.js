@@ -22,7 +22,7 @@ let saunaCost;
 let roseCosr;
 let wineCost;
 let champagneCost;
-// let hotelRoomCost;
+let hotelRoomCost;
 let costOfBreakfast
 let costOfDinner;
 let state = false;
@@ -101,44 +101,62 @@ The cost would be $10 per day?`)
 
     function NoParking(agent) {
         agent.add(`Hello world`)
-        return agent.setFollowupEvent({ "name": "nopark", "parameters": { "received": "false" } });
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
 
     function bookHotelOne(agent) {
+        hotelRoomCost = 100;
         agent.add(`Hotel 1 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelTwo(agent) {
+        hotelRoomCost = 60;
         agent.add(`Hotel 2 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelThree(agent) {
+        hotelRoomCost = 250;
         agent.add(`Hotel 3 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelFour(agent) {
+        hotelRoomCost = 100;
         agent.add(`Hotel 4 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelFive(agent) {
+        hotelRoomCost = 150;
         agent.add(`Hotel 5 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelSix(agent) {
+        hotelRoomCost = 300;
         agent.add(`Hotel 6 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelSeven(agent) {
+        hotelRoomCost = 270;
         agent.add(`Hotel 7 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelEight(agent) {
+        hotelRoomCost = 200;
         agent.add(`Hotel 8 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function bookHotelNine(agent) {
+        hotelRoomCost = 300;
         agent.add(`Hotel 9 has been booked`);
+        return agent.setFollowupEvent({ "name": "bookedroom", "parameters": { "received": "false" } });
     }
 
     function hotelOneDetails(agent) {
