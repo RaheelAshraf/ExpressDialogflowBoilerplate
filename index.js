@@ -25,20 +25,18 @@ let champagneCost;
 let hotelRoomCost;
 let costOfBreakfast
 let costOfDinner;
-let state = false;
+let userName;
 
 app.post('/webhook', (request, response) => {
 
     const _agent = new WebhookClient({ request: request, response: response });
 
     function welcome() {
-        state = true;
         const Response = WelcomeMessage.cardFun();
         return response.json(Response);
     }
 
     function bookRoom(agent) {
-        console.log(`The current state is ${state}`);
         const params = agent.parameters;
         if (!params.days) {
             agent.add(`You need Room for how many days?`);
@@ -79,7 +77,6 @@ app.post('/webhook', (request, response) => {
     }
 
     function smokingroom(agent) {
-        console.log(`Here is the cost of bedtype: ${bedtypeCost}`);
         agent.add(`Do you want smoking room?
 It will cost you extra $10`);
         agent.add(new Suggestion(`Yes`));
@@ -405,29 +402,91 @@ Kettle : Available`);
 
 
     function userDetails(agent) {
+        const params = agent.parameters;
+        userName = params.name;
         agent.add(`Please provide your payment method`);
         agent.add(new Suggestion(`Visa Card`));
         agent.add(new Suggestion(`Cash on Arrival`));
     }
 
     function VisaCard(agent) {
-        const orderprice = {
-            noofdays: `${daysCost}`,
-            smokingroom: `${smokingroomCost}`,
-            parking: `${parkingCost}`,
-            bedTypecost: `${bedtypeCost}`,
-            wakeup: `${wakeupCost}`,
-            massage: `${massageCost}`,
-            Jacuzzi: `${jacuzziCost}`,
-            Sauna: `${saunaCost}`,
-            rose: `${roseCosr}`,
-            wine: `${wineCost}`,
-            champagne: `${champagneCost}`,
-            breakfast: `${costOfBreakfast}`,
-            dinner: `${costOfDinner}`
-        };
-        console.log(orderprice);
-        agent.add(`Thank you for ordering`)
+        if (costOfBreakfast === undefined) {
+            costOfBreakfast = 0;
+        }
+
+        if (smokingroomCost === undefined) {
+            smokingroomCost = 0;
+        }
+
+
+        if (parkingCost === undefined) {
+            parkingCost = 0;
+        }
+
+
+        if (wakeupCost === undefined) {
+            wakeupCost = 0;
+        }
+
+
+        if (massageCost === undefined) {
+            massageCost = 0;
+        }
+
+
+        if (jacuzziCost === undefined) {
+            jacuzziCost = 0;
+        }
+
+
+        if (saunaCost === undefined) {
+            saunaCost = 0;
+        }
+
+
+        if (roseCosr === undefined) {
+            roseCosr = 0;
+        }
+
+
+        if (wineCost === undefined) {
+            wineCost = 0;
+        }
+
+
+        if (champagneCost === undefined) {
+            champagneCost = 0;
+        }
+
+        if (costOfDinner === undefined) {
+            costOfDinner = 0;
+        }
+
+        if (hotelRoomCost === undefined) {
+            hotelRoomCost = 0;
+        }
+
+        if (daysCost === undefined) {
+            daysCost = 0;
+        }
+
+        const total = daysCost * hotelRoomCost + costOfBreakfast + smokingroomCost + parkingCost + wakeupCost + massageCost + jacuzziCost + roseCosr + wineCost + champagneCost + costOfDinner;
+        agent.add(`Hello ${userName}, Here is your Order Summary`)
+        agent.add(`No of Days: ${daysCost}
+cost of Room: ${hotelRoomCost} * ${daysCost}
+cost of bed: ${bedtypeCost}
+cost of smoking room: ${smokingroomCost}
+cost of parking: ${parkingCost}
+cost of wakeup service: ${wakeupCost}
+cost of massage: ${massageCost}
+cost of breakfast: ${costOfBreakfast}
+cost of dinner: ${costOfDinner}
+cost of Jacuzzi: ${jacuzziCost}
+cost of Sauna Bath: ${saunaCost}
+cost of Bouquet of Roses: ${roseCosr}
+cost of Bottle of Wine: ${wineCost}
+cost of Bottle of Champagne: ${champagneCost}`);
+        agent.add('Total Cost:' + ' ' + '$' + total);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
@@ -496,12 +555,10 @@ Kettle : Available`);
         }
 
         const total = daysCost * hotelRoomCost + costOfBreakfast + smokingroomCost + parkingCost + wakeupCost + massageCost + jacuzziCost + roseCosr + wineCost + champagneCost + costOfDinner;
-
-        agent.add(`Thank you for Ordering 
-Here is your order details
-No of Days: ${daysCost}
+        agent.add(`Hello ${userName}, Here is your Order Summary`)
+        agent.add(`No of Days: ${daysCost}
 cost of Room: ${hotelRoomCost} * ${daysCost}
-cost of bed: ${costOfBreakfast}
+cost of bed: ${bedtypeCost}
 cost of smoking room: ${smokingroomCost}
 cost of parking: ${parkingCost}
 cost of wakeup service: ${wakeupCost}
@@ -513,7 +570,7 @@ cost of Sauna Bath: ${saunaCost}
 cost of Bouquet of Roses: ${roseCosr}
 cost of Bottle of Wine: ${wineCost}
 cost of Bottle of Champagne: ${champagneCost}`);
-        agent.add('Total Cost:' + $total);
+        agent.add('Total Cost:' + ' ' + '$' + total);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
