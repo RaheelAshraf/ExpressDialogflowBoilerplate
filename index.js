@@ -512,8 +512,8 @@ cost of Jacuzzi: ${jacuzziCost}
 cost of Sauna Bath: ${saunaCost}
 cost of Bouquet of Roses: ${roseCosr}
 cost of Bottle of Wine: ${wineCost}
-cost of Bottle of Champagne: ${champagneCost}
-Total Cost: ${$total}`);
+cost of Bottle of Champagne: ${champagneCost}`);
+        agent.add('total cost:' + $total);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
