@@ -487,8 +487,12 @@ Kettle : Available`);
             costOfDinner = 0;
         }
 
-        if (costOfBreakfast === undefined) {
-            costOfBreakfast = 0;
+        if (hotelRoomCost === undefined) {
+            hotelRoomCost = 0;
+        }
+
+        if (daysCost === undefined) {
+            daysCost = 0;
         }
 
         const total = daysCost * hotelRoomCost + costOfBreakfast + smokingroomCost + parkingCost + wakeupCost + massageCost + jacuzziCost + roseCosr + wineCost + champagneCost + costOfDinner;
@@ -508,7 +512,8 @@ cost of Jacuzzi: ${jacuzziCost}
 cost of Sauna Bath: ${saunaCost}
 cost of Bouquet of Roses: ${roseCosr}
 cost of Bottle of Wine: ${wineCost}
-cost of Bottle of Champagne: ${champagneCost}`);
+cost of Bottle of Champagne: ${champagneCost}
+Total Cost: ${$total}`);
         agent.add(new Suggestion(`Yes Place this Order`));
         agent.add(new Suggestion(`Cancel this Order`));
 
