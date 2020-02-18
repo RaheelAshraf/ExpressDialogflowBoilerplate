@@ -26,7 +26,7 @@ app.post('/fulfillment', (request, response) => {
     intentMap.set('Default Fallback Intent', fallback);
     // intentMap.set('<INTENT_NAME_HERE>', yourFunctionHandler);
     // intentMap.set('<INTENT_NAME_HERE>', googleAssistantHandler);
-    agent.handleRequest(intentMap);
+    _agent.handleRequest(intentMap);
 
 });
 
